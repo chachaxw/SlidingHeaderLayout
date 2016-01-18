@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SLIDING HEADER LAYOUT</title>
+<link href="css/normalize.css" rel="stylesheet" type="text/css">
+<link href="css/mycss.css" rel="stylesheet" type="text/css">
+<script src="js/classie.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="container">
+    <header class="intro">
+        <img src="images/HeadImg.jpg"  class="intro_image" alt="Beautiful Pictures">
+        <div class="intro_content">
+            <h1 class="intro_title">Essential Feelings</h1>
+            <div class="intro_subtitle">
+                <div class="links">Made By Chacha</div>
+                <div class="intro_description">A layout with a sliding header and an image grid.</div>
+                
+                <button class="trigger">
+                    <!--导航按钮 -->
+                    <svg width="100%" height="100%" viewBox="0 0 60 60" preserveAspectRatio="none">
+                        <g class="icon icon--grid">
+                            <rect x="32.5" y="5.5" width="22" height="22"/>
+                            <rect x="4.5" y="5.5" width="22" height="22"/>
+                            <rect x="32.5" y="33.5" width="22" height="22"/>
+                            <rect x="4.5" y="33.5" width="22" height="22"/>
+                        </g>
+                        <g class="icon icon--cross">
+                            <line x1="4.5" y1="55.5" x2="54.953" y2="5.046"/>
+                            <line x1="54.953" y1="55.5" x2="4.5" y2="5.047"/>
+                        </g>
+                    </svg>
+                    <!-- <span>View Content</span> -->
+                </button>
+            </div><!-- /intro__subtitle -->
+        </div><!-- /intro__title -->
+    </header><!-- /intro -->
+    <section class="items_wrap">
+        <a href="#" class="item">
+            <img src="images/picture1.jpg" class="item_image" alt="Pictue One"/>
+            <h2 class="item_title">Television</h2>       
+        </a>
+        <a href="#" class="item">
+            <img src="images/picture2.jpg" class="item_image" alt="Pictue Two"/>
+            <h2 class="item_title">Music Freak</h2>       
+        </a>
+         <a href="#" class="item">
+            <img src="images/picture3.jpg" class="item_image" alt="PictueThree"/>
+            <h2 class="item_title">Yummy Band</h2>       
+        </a>
+         <a href="#" class="item">
+            <img src="images/picture4.jpg" class="item_image" alt="Pictue Four"/>
+            <h2 class="item_title">Colorful</h2>       
+        </a>
+         <a href="#" class="item">
+            <img src="images/picture5.jpg" class="item_image" alt="Pictue Five"/>
+            <h2 class="item_title">Funny Man</h2>       
+        </a>
+        <a href="#" class="item">
+            <img src="images/picture6.jpg" class="item_image" alt="Pictue Six"/>
+            <h2 class="item_title">Love Song</h2>       
+        </a>
+        <a href="#" class="item">
+            <img src="images/picture7.jpg" class="item_image" alt="Pictue Seven"/>
+            <h2 class="item_title">Hey Puppy!</h2>       
+        </a>
+        <a href="#" class="item">
+            <img src="images/picture8.jpg" class="item_image" alt="Pictue Eight"/>
+            <h2 class="item_title">Smoking</h2>       
+        </a>
+        <a href="#" class="item">
+            <img src="images/picture9.jpg" class="item_image" alt="Pictue Nine"/>
+            <h2 class="item_title">Stars</h2>       
+        </a>
+    </section><!--items_wrap-->
+</div><!-- Container -->
+<script>
+(function(){
+	var container=document.getElementById('container');
+	var trigger=container.querySelector('button.trigger');
+	
+	function toggleContent()
+	{
+		if(classie.has(container,'container--open'))
+		{
+			classie.remove(container,'container--open');
+			classie.remove(container,'trigger--active');
+			window.addEventListener('scroll',noscroll);	
+		}
+		else
+		{
+			classie.add(container,'container--open');	
+			classie.add(container,'trigger--active');
+			window.removeEventListener('scroll',noscroll);
+		}
+	};
+	
+	function noscroll()
+	{
+		window.scroll(0,0);	
+	};
+	
+	// reset scrolling position
+	document.body.scrollTop=document.documentElement.scrollTop=0;
+	
+	 // disable scrolling
+	window.addEventListener('scroll',noscroll);
+	
+	trigger.addEventListener('click',toggleContent);
+	
+})();
+</script>
+</body>
+</html>
